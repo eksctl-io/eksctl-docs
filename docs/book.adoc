@@ -1,0 +1,48 @@
+//!!NODE_ROOT <book>
+[[top]]
+= Eksctl User Guide
+:doctype: book
+:toc: left
+:icons: font
+:experimental:
+:idprefix:
+:idseparator: -
+:info_doctype: book
+:info_title: Eksctl User Guide
+:info_subtitle: Amazon EKS
+:info_corpauthor: AWS
+:info_publisher: AWS
+:info_copyright: Copyright informaiton pending.
+:info_legalnotice: Copyright information pending.
+
+[abstract]
+--
+Eksctl User Guide
+--
+:sectnums:
+
+include::what-is/what-is.adoc[leveloffset=+1]
+
+include::tutorial.adoc[leveloffset=+1]
+
+include::installation.adoc[leveloffset=+1]
+
+include::clusters/clusters.adoc[leveloffset=+1]
+
+include::schema.adoc[leveloffset=+1]
+
+include::nodegroups/nodegroups.adoc[leveloffset=+1]
+
+include::networking/networking.adoc[leveloffset=+1]
+
+include::iam/iam.adoc[leveloffset=+1]
+
+include::deployment/deployment.adoc[leveloffset=+1]
+
+include::security/security.adoc[leveloffset=+1]
+
+include::troubleshooting/troubleshooting.adoc[leveloffset=+1]
+
+include::announcements.adoc[leveloffset=+1]
+
+//include::migrate/index.adoc[leveloffset=+1]

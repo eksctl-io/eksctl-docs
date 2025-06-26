@@ -1,0 +1,62 @@
+
+
+* <<access-entries>>
+** Simplify Kubernetes RBAC management by replacing aws-auth ConfigMap with EKS access entries
+** Migrate existing IAM identity mappings from aws-auth ConfigMap to access entries
+** Configure cluster authentication modes and control cluster creator admin permissions
+* <<addon-upgrade>>
+** Keep clusters secure by updating default EKS add-ons on older clusters
+** Check the status and readiness of add-on pods after updates
+** Configure add-on updates using a custom config file
+* <<addons>>
+** Ensure proper security isolation by managing EKS add-ons with custom IAM permissions using IRSA
+** Configure add-on settings through ConfigurationValues in JSON/YAML format
+** Create clusters without default networking add-ons for alternative CNI plugins
+* <<auto-mode>>
+** Reduce operational overhead by letting AWS manage your EKS infrastructure
+** Configure custom node pools instead of default general-purpose and system pools
+** Convert existing EKS clusters to use Auto Mode
+* <<cloudwatch-cluster-logging>>
+** Troubleshoot cluster issues by enabling logs for specific EKS control plane components
+** Configure log retention periods for EKS cluster logs
+** Modify existing cluster logging settings using eksctl commands
+* <<cluster-upgrade>>
+** Maintain security and stability by safely upgrading EKS control plane versions
+** Roll out upgrades across nodegroups by replacing old groups with new ones
+** Update default cluster add-ons
+* <<creating-and-managing-clusters>>
+** Start quickly with basic EKS clusters using default managed nodegroups
+** Create customized clusters using config files with specific configurations
+** Deploy clusters in existing VPCs with private networking and custom IAM policies
+* <<customizing-the-kubelet>>
+** Prevent node resource starvation by configuring kubelet and system daemon reservations
+** Customize eviction thresholds for memory and filesystem availability
+** Enable or disable specific kubelet feature gates across node groups
+* <<eks-connector>>
+** Centralize management of hybrid Kubernetes deployments through EKS Console
+** Configure IAM roles and permissions for external cluster access
+** Remove external clusters and cleanup associated AWS resources
+* <<eks-private-cluster>>
+** Meet security requirements with fully-private EKS clusters having no outbound internet access
+** Configure private access to AWS services through VPC endpoints
+** Create and manage private nodegroups with explicit networking settings
+* <<eksctl-karpenter>>
+** Reduce costs and improve availability with automated node provisioning
+** Create custom Karpenter provisioner configurations
+** Set up Karpenter with spot instance interruption handling
+* <<emr-access>>
+** Run analytics workloads on EKS by configuring EMR integration
+** Create IAM identity mapping between EMR and EKS cluster
+** Configure EMR service-linked role access in specific namespaces
+* <<fargate>>
+** Eliminate node management overhead by running pods on Fargate
+** Define custom Fargate profiles for pod scheduling
+** Manage Fargate profiles through creation and configuration updates
+* <<unowned-clusters>>
+** Standardize management of clusters created outside eksctl
+** Use eksctl commands on existing non-eksctl clusters
+** Create nodegroups in non-eksctl clusters using custom VPC configurations
+* <<zonal-shift>>
+** Improve application availability by enabling rapid zone failover capabilities
+** Configure zonal shift on new EKS cluster deployments
+** Enable zonal shift features on existing EKS clusters

@@ -1,0 +1,207 @@
+[#installation]
+= Installation options for Eksctl
+:info_doctype: chapter
+
+`eksctl` is available to install from official releases as described below. We recommend that you install `eksctl` from only the official GitHub releases. You may opt to use a third-party installer, but please be advised that AWS does not maintain nor support these methods of installation. Use them at your own discretion.
+
+== Prerequisite
+
+You will need to have AWS API credentials configured. What works for AWS CLI or any other tools (kops, Terraform, etc.) should be sufficient. You can use link:cli/latest/userguide/cli-config-files.html[`~/.aws/credentials` file,type="documentation"]
+or link:cli/latest/userguide/cli-environment.html[environment variables,type="documentation"]. For more information, see the link:cli/latest/userguide/cli-environment.html[AWS CLI Reference,type="documentation"].
+
+You will also need https://github.com/kubernetes-sigs/aws-iam-authenticator[AWS IAM Authenticator for Kubernetes] command (either `aws-iam-authenticator` or `aws eks get-token` (available in version 1.16.156 or greater of AWS CLI) in your `PATH`.
+
+The IAM account used for EKS cluster creation should have these minimal access levels.
+
+|===
+| AWS Service | Access Level
+
+| CloudFormation
+| Full Access
+
+| EC2
+| *Full:* Tagging *Limited:* List, Read, Write
+
+| EC2 Auto Scaling
+| *Limited:* List, Write
+
+| EKS
+| Full Access
+
+| IAM
+| *Limited:* List, Read, Write, Permissions Management
+
+| Systems Manager
+| *Limited:* List, Read
+|===
+
+
+== For Unix
+
+To download the latest release, run:
+
+[,sh]
+----
+# for ARM systems, set ARCH to: `arm64`, `armv6` or `armv7`
+ARCH=amd64
+PLATFORM=$(uname -s)_$ARCH
+
+curl -sLO "https://github.com/eksctl-io/eksctl/releases/latest/download/eksctl_$PLATFORM.tar.gz"
+
+# (Optional) Verify checksum
+curl -sL "https://github.com/eksctl-io/eksctl/releases/latest/download/eksctl_checksums.txt" | grep $PLATFORM | sha256sum --check
+
+tar -xzf eksctl_$PLATFORM.tar.gz -C /tmp && rm eksctl_$PLATFORM.tar.gz
+
+sudo install -m 0755 /tmp/eksctl /usr/local/bin && rm /tmp/eksctl
+----
+
+== For Windows
+
+Direct download (latest release): 
+
+- https://github.com/eksctl-io/eksctl/releases/latest/download/eksctl_windows_amd64.zip[AMD64/x86_64] 
+- https://github.com/eksctl-io/eksctl/releases/latest/download/eksctl_windows_armv6.zip[ARMv6] 
+- https://github.com/eksctl-io/eksctl/releases/latest/download/eksctl_windows_armv7.zip[ARMv7] 
+- https://github.com/eksctl-io/eksctl/releases/latest/download/eksctl_windows_arm64.zip[ARM64]
+
+Make sure to unzip the archive to a folder in the `PATH` variable.
+
+Optionally, verify the checksum:
+
+. Download the checksum file: https://github.com/eksctl-io/eksctl/releases/latest/download/eksctl_checksums.txt[latest]
+. Use Command Prompt to manually compare ``CertUtil``'s output to the checksum file downloaded.
++
+[,cmd]
+----
+  REM Replace amd64 with armv6, armv7 or arm64
+  CertUtil -hashfile eksctl_Windows_amd64.zip SHA256
+----
+
+. Using PowerShell to automate the verification using the `-eq` operator to get a `True` or `False` result:
++
+[,pwsh]
+----
+# Replace amd64 with armv6, armv7 or arm64
+ (Get-FileHash -Algorithm SHA256 .\eksctl_Windows_amd64.zip).Hash -eq ((Get-Content .\eksctl_checksums.txt) -match 'eksctl_Windows_amd64.zip' -split ' ')[0]
+----
+
+
+=== Using Git Bash:
+
+[,sh]
+----
+# for ARM systems, set ARCH to: `arm64`, `armv6` or `armv7`
+ARCH=amd64
+PLATFORM=windows_$ARCH
+
+curl -sLO "https://github.com/eksctl-io/eksctl/releases/latest/download/eksctl_$PLATFORM.zip"
+
+# (Optional) Verify checksum
+curl -sL "https://github.com/eksctl-io/eksctl/releases/latest/download/eksctl_checksums.txt" | grep $PLATFORM | sha256sum --check
+
+unzip eksctl_$PLATFORM.zip -d $HOME/bin
+
+rm eksctl_$PLATFORM.zip
+----
+
+The `eksctl` executable is placed in `$HOME/bin`, which is in `$PATH` from Git Bash.
+
+== Homebrew
+
+You can use Homebrew to install software on MacOS and Linux. 
+
+AWS maintains a Homebrew tap including eksctl. 
+
+For more information about the Homebrew tap, see the https://github.com/aws/homebrew-tap[project on Github] and the https://github.com/aws/homebrew-tap/blob/master/Formula/eksctl.rb[Homebrew formula] for eksctl. 
+
+**To install eksctl with Homebrew**
+
+. (Prerequisite) Install https://brew.sh/[Homebrew]
+. Add the AWS tap
++
+[source,cli]
+----
+brew tap aws/tap
+----
+. Install eksctl
++
+[source,cli]
+----
+brew install eksctl
+----
+
+
+== Docker
+
+For every release and RC a container image is pushed to ECR repository `public.ecr.aws/eksctl/eksctl`. Learn more about the usage on https://gallery.ecr.aws/eksctl/eksctl[ECR Public Gallery - eksctl]. For example,
+
+[,bash]
+----
+docker run --rm -it public.ecr.aws/eksctl/eksctl version
+----
+
+== Shell Completion
+
+
+=== Bash
+
+To enable bash completion, run the following, or put it in `~/.bashrc` or `~/.profile`:
+
+[source,cli]
+----
+. <(eksctl completion bash)
+----
+
+
+=== Zsh
+
+For zsh completion, please run:
+
+[source,cli]
+----
+mkdir -p ~/.zsh/completion/
+eksctl completion zsh > ~/.zsh/completion/_eksctl
+----
+
+and put the following in `~/.zshrc`:
+
+[source,cli]
+----
+fpath=($fpath ~/.zsh/completion)
+----
+
+Note if you're not running a distribution like oh-my-zsh you may first have to enable autocompletion (and put in `~/.zshrc` to make it persistent):
+
+[source,cli]
+----
+autoload -U compinit
+compinit
+----
+
+
+=== Fish
+
+The below commands can be used for fish auto completion:
+
+[source,cli]
+----
+mkdir -p ~/.config/fish/completions
+eksctl completion fish > ~/.config/fish/completions/eksctl.fish
+----
+
+=== Powershell
+
+The below command can be referred for setting it up. Please note that the path might be different depending on your
+system settings.
+
+[source,cli]
+----
+eksctl completion powershell > C:\Users\Documents\WindowsPowerShell\Scripts\eksctl.ps1
+----
+
+== Updates
+
+IMPORTANT: If you install eksctl by directly downloading it (not using a package manager) you need to manually update it. 
+
+

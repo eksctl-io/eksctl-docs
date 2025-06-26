@@ -1,0 +1,26 @@
+[[security,security.title]]
+= Security
+:info_doctype: chapter
+
+`eksctl` provides some options that can improve the security of your EKS cluster.
+
+== `withOIDC`
+
+
+Enable https://geoffcline.github.io/eksctl-schema-demo/#iam-withOIDC[`withOIDC`] to automatically create an xref:iamserviceaccounts[IRSA] for the amazon CNI plugin and
+limit permissions granted to nodes in your cluster, instead granting the necessary permissions
+only to the CNI service account. 
+
+The background is described in link:eks/latest/userguide/cni-iam-role.html["this AWS documentation",type="documentation"].
+
+== `disablePodIMDS`
+
+For managed and unmanaged nodegroups, link:https://geoffcline.github.io/eksctl-schema-demo/#nodeGroups-disablePodIMDS[`disablePodIMDS`] option is available prevents all
+non host networking pods running in this nodegroup from making IMDS requests.
+
+[NOTE]
+====
+This can not be used together with xref:iam-policies[`withAddonPolicies`].
+====
+
+include::kms-encryption.adoc[leveloffset=+1]

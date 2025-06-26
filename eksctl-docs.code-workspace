@@ -1,0 +1,36 @@
+{
+	"folders": [
+		{
+			"name": "📦 AmazonEksEksctlDocs",
+			"path": "."
+		},
+		{
+			"name": "📦 AWSEC2ContainerChecklist",
+			"path": "../AWSEC2ContainerChecklist"
+		}
+	],
+	"settings": {
+		"files.associations": {
+			"*.adoc": "asciidoc"
+		},
+		"editor.wordWrap": "wordWrapColumn",
+		"editor.wordWrapColumn": 80,
+		"[asciidoc]": {
+			"editor.wordWrap": "wordWrapColumn",
+			"editor.wordWrapColumn": 80,
+			"editor.formatOnSave": true,
+			"editor.tabSize": 2,
+			"editor.insertSpaces": true,
+			"editor.rulers": [80]
+		},
+		"asciidoc.preview.scrollPreviewWithEditor": true,
+		"asciidoc.preview.scrollEditorWithPreview": true,
+		"asciidoc.antora.showEnableAntoraPrompt": false
+	},
+	"extensions": {
+		"recommendations": [
+			"asciidoctor.asciidoctor-vscode"
+		]
+	}
+}
+

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<buildinfo>
+  <docsets>
+    <docset id="eks">
+      <pathslug>eks</pathslug>
+      <title>Amazon EKS</title>
+      <rePost-new>search</rePost-new>
+      <feedbackCTI>Amazon EKS</feedbackCTI>
+      
+      <options>
+        <referenced-images-only>enabled</referenced-images-only>
+        <uiVersion>2024.10</uiVersion>
+      </options>
+
+      <guides>
+        <guide id="AmazonEksEksctlDocs" region="-BJS,-DCA,-LCK">
+          <pathslug>eksctl</pathslug>
+          <basename>AmazonEksEksctlDocs</basename>
+          <title>Eksctl User Guide</title>
+          <abbr>eks-eksctl</abbr>
+          <api>latest</api>
+          <version>latest</version>
+          <asciidoc-source>docs</asciidoc-source>
+          <locale>en_us</locale>
+          <github>
+            <user>eksctl-io</user>
+            <repo>eksctl-docs</repo>
+            <branch>main</branch>
+            <source-folder>docs</source-folder>
+          </github>
+<!--     
+          <options>
+          </options>
+-->     
+          <builds>
+            <html/>
+            <pdf/>
+          </builds>
+
+        </guide>
+      </guides>
+    </docset>
+  </docsets>
+</buildinfo>

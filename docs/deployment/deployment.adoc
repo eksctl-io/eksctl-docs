@@ -1,0 +1,24 @@
+[#deployment]
+= Deployment options
+:info_doctype: chapter
+
+
+This chapter covers using eksctl to manage EKS clusters deployed to alternate environments. 
+
+For the most accurate information about EKS deployment options, see link:eks/latest/userguide/eks-deployment-options.html[Deploy Amazon EKS clusters across cloud and on-premises environments,type="documentation"] in the _EKS User Guide_. 
+
+== Topics: 
+
+* <<eksctl-anywhere>>
+** Use eksctl with Amazon EKS Anywhere clusters.
+** Amazon EKS Anywhere is container management software built by AWS that makes it easier to run and manage Kubernetes on-premises and at the edge.  
+* <<outposts>>
+** Use eksctl with EKS clusters on AWS Outposts.
+** AWS Outposts is a family of fully managed solutions delivering AWS infrastructure and services to virtually any on-premises or edge location for a truly consistent hybrid experience. 
+** AWS Outposts support in eksctl lets you create local clusters with the entire Kubernetes cluster, including the EKS control plane and worker nodes, running locally on AWS Outposts. 
+* <<hybrid-nodes>>
+** Run on-premises and edge applications on customer-managed infrastructure with the same AWS EKS clusters, features, and tools you use in the AWS Cloud.
+
+include::eksctl-anywhere.adoc[leveloffset=+1]
+
+include::outposts.adoc[leveloffset=+1]

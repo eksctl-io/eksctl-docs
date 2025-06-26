@@ -1,0 +1,20 @@
+
+[.topic]
+[[eksctl-anywhere,eksctl-anywhere.title]]
+= EKS Anywhere
+:info_doctype: section
+
+
+`eksctl` provides access to AWS' feature called `EKS Anywhere` with the sub command `eksctl anywhere`.
+This requires the `eksctl-anywhere` binary present on `PATH`. Please follow the instruction outlined here https://anywhere.eks.amazonaws.com/docs/getting-started/install/[Install eksctl-anywhere]
+to install it.
+
+Once done, execute anywhere commands by running:
+
+[,shell]
+----
+eksctl anywhere version
+v0.5.0
+----
+
+For more information about EKS Anywhere, please visit https://anywhere.eks.amazonaws.com/[EKS Anywhere Website].

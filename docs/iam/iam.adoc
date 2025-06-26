@@ -1,0 +1,43 @@
+[#iam]
+= IAM
+:info_doctype: chapter
+
+This chapter includes information about working with AWS IAM. 
+
+
+== Topics:
+
+* <<iam-identity-mappings>>
+** Manage IAM user and role mappings to control access to an EKS cluster
+** Configure IAM identity mappings through the cluster config file or CLI commands
+* <<iamserviceaccounts>>
+** Manage fine-grained permissions for applications running on Amazon EKS that use other AWS services
+** Create and configure IAM Roles and Kubernetes Service Account pairs using eksctl
+** Enable IAM OpenID Connect Provider for an EKS cluster to enable IAM Roles for Service Accounts
+* <<iam-permissions-boundary>>
+** Control the maximum permissions granted to IAM entities (users or roles) by setting a permissions boundary
+* <<pod-identity-associations>>
+** Configure IAM permissions for EKS add-ons using recommended pod identity associations
+** Enable Kubernetes applications to receive required IAM permissions to connect with AWS services outside the cluster
+** Simplify the process of automating IAM roles and service accounts across multiple EKS clusters
+* <<iam-policies>>
+** Manage IAM policies for EKS node groups, including support for various add-on policies like image builder, auto scaler, external DNS, cert manager, and more.
+** Attach custom instance roles or inline policies to node groups for additional permissions.
+** Attach specific AWS managed policies by ARN to node groups, ensuring required policies like AmazonEKSWorkerNodePolicy and AmazonEKS_CNI_Policy are included.
+* <<minimum-iam-policies>>
+** Manage AWS EC2 resources, including load balancers, auto-scaling groups, and CloudWatch monitoring
+** Create and manage AWS CloudFormation stacks
+** Manage Amazon Elastic Kubernetes Service (EKS) clusters, node groups, and related resources like IAM roles and policies
+
+
+include::minimum-iam-policies.adoc[leveloffset=+1]
+
+include::iam-permissions-boundary.adoc[leveloffset=+1]
+
+include::iam-policies.adoc[leveloffset=+1]
+
+include::iam-identity-mappings.adoc[leveloffset=+1]
+
+include::iamserviceaccounts.adoc[leveloffset=+1]
+
+include::pod-identity-associations.adoc[leveloffset=+1]

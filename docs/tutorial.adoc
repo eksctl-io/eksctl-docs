@@ -1,0 +1,138 @@
+[#tutorial]
+= Tutorial: Install eksctl with homebrew and create a cluster
+:info_doctype: chapter
+:info_title: Tutorial
+:info_titleabbrev: Tutorial
+
+This topic walks you through installing and configuring eksctl, then using it to create an Amazon EKS cluster. 
+
+== Step 1: Install eksctl
+
+Complete the following steps to download and install the latest version of eksctl on your Linux or macOS device:
+
+**To install eksctl with Homebrew**
+
+. (Prerequisite) Install https://brew.sh/[Homebrew].
+. Add the AWS tap:
++
+[source,cli]
+----
+brew tap aws/tap
+----
+. Install eksctl
++
+[source,cli]
+----
+brew install eksctl
+----
+
+Before using eksctl, complete these configuration steps:
+
+. Install prerequisites:
+** link:cli/latest/userguide/getting-started-install.html[Install AWS CLI version,type="documentation"] 2.x or later.
+** Install https://formulae.brew.sh/formula/kubernetes-cli[kubectl] using Homebrew:
++
+[source,cli]
+----
+brew install kubernetes-cli
+----
+. link:cli/latest/userguide/cli-chap-configure.html[Configure AWS credentials,type="documentation"] in your environment:
++
+[source,cli]
+----
+aws configure
+----
+. Verify AWS CLI configuration:
++
+[source,cli]
+----
+aws sts get-caller-identity
+----
+
+== Step 2: Create cluster config file
+
+Create a cluster configuration file using these steps:
+
+. Create a new file named `cluster.yaml`:
++
+[source,cli]
+----
+touch cluster.yaml
+----
+. Add the following basic cluster configuration:
++
+[source,yaml]
+----
+apiVersion: eksctl.io/v1alpha5
+kind: ClusterConfig
+
+metadata:
+   name: basic-cluster
+   region: us-west-2
+
+nodeGroups:
+   - name: ng-1
+      instanceType: m5.large
+      desiredCapacity: 2
+      minSize: 1
+      maxSize: 3
+      ssh:
+      allow: false
+----
+. Customize the configuration:
+** Update the `region` to match your desired AWS region.
+** Modify the `instanceType` based on your workload requirements.
+** Adjust the `desiredCapacity`, `minSize`, and `maxSize` according to your needs.
+. Validate the configuration file:
++
+[source,cli]
+----
+eksctl create cluster -f cluster.yaml --dry-run
+----
+
+== Step 3: Create cluster
+
+Follow these steps to create your EKS cluster:
+
+. Create the cluster using the configuration file:
++
+[source,cli]
+----
+eksctl create cluster -f cluster.yaml
+----
+. Wait for cluster creation (this typically takes 15-20 minutes).
+. Verify cluster creation:
++
+[source,cli]
+----
+eksctl get cluster
+----
+. Configure kubectl to use your new cluster:
++
+[source,cli]
+----
+aws eks update-kubeconfig --name basic-cluster --region us-west-2
+----
+. Verify cluster connectivity:
++
+[source,cli]
+----
+kubectl get nodes
+----
+
+Your cluster is now ready to use. 
+
+=== Optional: Delete Cluster
+
+Remember to delete the cluster when you're done to avoid unnecessary charges:
+[source,cli]
+----
+eksctl delete cluster -f cluster.yaml
+----
+
+NOTE: Cluster creation can incur AWS charges. Make sure to review the link:eks/pricing/["Amazon EKS pricing",type="marketing"] before creating a cluster.
+
+== Next Steps
+
+* Configure Kubectl to connect to the cluster
+* Deploy a sample app
