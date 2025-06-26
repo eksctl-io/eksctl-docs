@@ -1,16 +1,16 @@
+# eksctl-docs
 
-## Amazon EKS -- Eksctl Docs
+Documentation repository for [eksctl](https://github.com/weaveworks/eksctl), a simple CLI tool for creating and managing clusters on Amazon EKS.
 
-Guide Package for Amazon EKS -- Eksctl
+## Repository Structure
 
-Initial guide pathslug when package created:  /eks/latest/userguide
+- `docs/` - Main documentation written in AsciiDoc format, published to AWS Documentation
+- `public-pages/` - Static HTML/JavaScript files containing schema documentation
 
+## Documentation
 
-## Security
+The primary documentation is authored in AsciiDoc and automatically published to the official AWS documentation site. Schema references are maintained as static web pages for easy browsing and integration.
 
-See [CONTRIBUTING](CONTRIBUTING.md#security-issue-notifications) for more information.
+## Contributing
 
-## License
-
-This project is licensed under the Apache-2.0 License.
-
+Please refer to the main [eksctl repo](https://github.com/eksctl-io/eksctl) for contribution guidelines and project information.
