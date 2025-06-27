@@ -13,7 +13,7 @@
       </options>
 
       <guides>
-        <guide id="AmazonEksEksctlDocs" region="-BJS,-DCA,-LCK">
+        <guide id="AmazonEksEksctlDocs" region="SEA">
           <pathslug>eksctl</pathslug>
           <basename>AmazonEksEksctlDocs</basename>
           <title>Eksctl User Guide</title>
