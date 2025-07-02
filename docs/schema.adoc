@@ -4,7 +4,7 @@
 
 NOTE: The location of the schema is currently being migrated. 
 
-You can use a yaml file to create a cluster. https://eksctl.io/usage/schema/[View the schema reference.]
+You can use a yaml file to create a cluster. https://schema.eksctl.io/[View the schema reference.]
 
 For example:
 
@@ -13,6 +13,6 @@ For example:
 eksctl create cluster -f cluster.yaml
 ----
 
-https://eksctl.io/usage/schema/[The schema reference for this file is available on GitHub.]
+https://schema.eksctl.io/[The schema reference for this file is available on GitHub.]
 
 For more information about using the file, see <<creating-and-managing-clusters>>.
