@@ -23,7 +23,7 @@ brew tap aws/tap
 +
 [source,cli]
 ----
-brew install eksctl
+brew install aws/tap/eksctl
 ----
 
 Before using eksctl, complete these configuration steps:
