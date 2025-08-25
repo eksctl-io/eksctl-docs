@@ -10,6 +10,7 @@
       <options>
         <referenced-images-only>enabled</referenced-images-only>
         <uiVersion>2024.10</uiVersion>
+        <hide-github-link>0</hide-github-link>
       </options>
 
       <guides>
@@ -35,6 +36,9 @@
           <builds>
             <html/>
             <pdf/>
+            <asciidoc>
+              <include-html-profiling>1</include-html-profiling>
+            </asciidoc> 
           </builds>
 
         </guide>
