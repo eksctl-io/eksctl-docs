@@ -80,3 +80,7 @@ spec:
 
 Note that unless `defaultInstanceProfile` is defined, the name used for `instanceProfile` is
 `eksctl-KarpenterNodeInstanceProfile-<cluster-name>`.
+
+## Automatic Security Group Tagging
+
+`eksctl` automatically tags the cluster's shared node security group with `karpenter.sh/discovery` when both Karpenter is enabled (`karpenter.version` specified) and the `karpenter.sh/discovery` tag exists in `metadata.tags`. This enables AWS Load Balancer Controller compatibility.
