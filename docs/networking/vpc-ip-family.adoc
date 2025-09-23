@@ -50,5 +50,6 @@ If you use IPv6, you must configure the following requirements:
 * managed nodegroups are not supported with un-owned IPv6 clusters
 * `vpc.nat` and `serviceIPv4CIDR` fields are created by eksctl for ipv6 clusters and are not supported configuration options
 * AutoAllocateIPv6 is not supported together with IPv6
+* For IPv6 cluster, the IAM role for vpc-cni must have https://github.com/aws/amazon-vpc-cni-k8s/blob/master/docs/iam-policy.md#ipv6-mode[required IAM policies for IPv6 mode] associated
 
 Private networking can be done with IPv6 IP family as well. Please follow the instruction outlined under xref:eks-private-cluster[EKS Private Cluster].
