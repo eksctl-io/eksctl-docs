@@ -2,6 +2,8 @@
 [#minimum-iam-policies]
 = Minimum IAM policies
 
+include::../attributes.txt[]
+
 This document describes the minimum IAM policies needed to run the main use cases of eksctl. These are the ones used to
 run the integration tests.
 
@@ -14,73 +16,18 @@ An AWS Managed Policy is created and administered by AWS. You cannot change the 
 
 *AmazonEC2FullAccess (AWS Managed Policy)*
 
-----
-{
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Action": "ec2:*",
-            "Effect": "Allow",
-            "Resource": "*"
-        },
-        {
-            "Effect": "Allow",
-            "Action": "elasticloadbalancing:*",
-            "Resource": "*"
-        },
-        {
-            "Effect": "Allow",
-            "Action": "cloudwatch:*",
-            "Resource": "*"
-        },
-        {
-            "Effect": "Allow",
-            "Action": "autoscaling:*",
-            "Resource": "*"
-        },
-        {
-            "Effect": "Allow",
-            "Action": "iam:CreateServiceLinkedRole",
-            "Resource": "*",
-            "Condition": {
-                "StringEquals": {
-                    "iam:AWSServiceName": [
-                        "autoscaling.amazonaws.com",
-                        "ec2scheduled.amazonaws.com",
-                        "elasticloadbalancing.amazonaws.com",
-                        "spot.amazonaws.com",
-                        "spotfleet.amazonaws.com",
-                        "transitgateway.amazonaws.com"
-                    ]
-                }
-            }
-        }
-    ]
-}
-----
+link:https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AmazonEC2FullAccess.html[View AmazonEC2FullAccess policy definition.]
 
 *AWSCloudFormationFullAccess (AWS Managed Policy)*
 
-----
-{
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Effect": "Allow",
-            "Action": [
-                "cloudformation:*"
-            ],
-            "Resource": "*"
-        }
-    ]
-}
-----
+link:https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AWSCloudFormationFullAccess.html[View AWSCloudFormationFullAccess policy definition.]
 
 *EksAllAccess*
 
+[source,json,subs="verbatim,attributes"]
 ----
 {
-    "Version": "2012-10-17",
+    "Version": "2012-10-17",{tcx5-waiver}
     "Statement": [
         {
             "Effect": "Allow",
@@ -119,9 +66,10 @@ An AWS Managed Policy is created and administered by AWS. You cannot change the 
 
 *IamLimitedAccess*
 
+[source,json,subs="verbatim,attributes"]
 ----
 {
-    "Version": "2012-10-17",
+    "Version": "2012-10-17",{tcx5-waiver}
     "Statement": [
         {
             "Effect": "Allow",
