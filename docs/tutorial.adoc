@@ -72,12 +72,12 @@ metadata:
 
 nodeGroups:
    - name: ng-1
-      instanceType: m5.large
-      desiredCapacity: 2
-      minSize: 1
-      maxSize: 3
-      ssh:
-      allow: false
+     instanceType: m5.large
+     desiredCapacity: 2
+     minSize: 1
+     maxSize: 3
+     ssh:
+        allow: false
 ----
 . Customize the configuration:
 ** Update the `region` to match your desired AWS region.
