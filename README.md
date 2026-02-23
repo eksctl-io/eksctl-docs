@@ -1,5 +1,15 @@
 # eksctl-docs
 
+## Important: Migration
+
+The eksctl docs source will be migrating from this repo, `eksctl-io/eksctl-docs` to the main EKS Docs repo, `awsdocs/amazon-eks-user-guide`. View the [EKS User Guide repo](https://github.com/awsdocs/amazon-eks-user-guide).
+
+The public URLs for the content will not change, and remain at https://docs.aws.amazon.com/eks/latest/eksctl/
+
+The contribution process for the eksctl docs will be unified with the EKS User Guide. 
+
+## Overview
+
 Documentation repository for [eksctl](https://github.com/weaveworks/eksctl), a simple CLI tool for creating and managing clusters on Amazon EKS.
 
 The primary documentation is authored in AsciiDoc and automatically published to the official AWS documentation site. Schema references are maintained as static web pages for easy browsing and integration.
