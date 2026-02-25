@@ -8,7 +8,7 @@
 Amazon Elastic Kubernetes Service (Amazon EKS) provides default envelope encryption for all Kubernetes API data in EKS clusters running Kubernetes version 1.28 or higher. For more information, see link:eks/latest/userguide/envelope-encryption.html[Default envelope encryption for all Kubernetes API Data,type="documentation"] in the _EKS User Guide_. 
 ====
 
-EKS supports using link:about-aws/whats-new/2021/03/amazon-eks-supports-adding-kms-envelope-encryption-to-existing-clusters/[AWS KMS,type="marketing"] keys to provide envelope encryption of Kubernetes secrets stored in EKS. Envelope encryption adds an addition, customer-managed layer of encryption for application secrets or user data that is stored within a Kubernetes cluster.
+EKS supports using link:about-aws/whats-new/2021/03/amazon-eks-supports-adding-kms-envelope-encryption-to-existing-clusters/[AWS KMS,type="marketing"] keys to provide envelope encryption of Kubernetes secrets stored in EKS. Envelope encryption adds an additional, customer-managed layer of encryption for application secrets or user data that is stored within a Kubernetes cluster.
 
 Previously, Amazon EKS supported link:about-aws/whats-new/2020/03/amazon-eks-adds-envelope-encryption-for-secrets-with-aws-kms/[enabling envelope encryption,type="marketing"] using KMS keys only during cluster creation. Now, you can enable envelope encryption for Amazon EKS clusters at any time.
 

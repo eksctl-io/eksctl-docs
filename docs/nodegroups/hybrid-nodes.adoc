@@ -16,7 +16,7 @@ The `remoteNetworkConfig` section of the config file allows you to setup the two
 [#hybrid-networking]
 == Networking
 
-EKS Hybrid Nodes is ﬂexible to your preferred method of connecting your on-premises network(s) to a VPC. There are several link:whitepapers/latest/aws-vpc-connectivity-options/network-to-amazon-vpc-connectivity-options.html["documented options",type="documentation"] available, including AWS Site-to-Site VPN and AWS Direct Connect, and you can choose the method that best fits your use case. In most of the methods you might choose, your VPC will be attached to either a virtual private gateway (VGW) or a transit gateway (TGW). If you rely on eksctl to create a VPC for you, eksctl will also configure, *within the scope of your VPC*, any networking related pre-requisites in order to facilitate communication between your EKS control plane and the remote nodes i.e.
+EKS Hybrid Nodes is flexible to your preferred method of connecting your on-premises network(s) to a VPC. There are several link:whitepapers/latest/aws-vpc-connectivity-options/network-to-amazon-vpc-connectivity-options.html["documented options",type="documentation"] available, including AWS Site-to-Site VPN and AWS Direct Connect, and you can choose the method that best fits your use case. In most of the methods you might choose, your VPC will be attached to either a virtual private gateway (VGW) or a transit gateway (TGW). If you rely on eksctl to create a VPC for you, eksctl will also configure, *within the scope of your VPC*, any networking related pre-requisites in order to facilitate communication between your EKS control plane and the remote nodes i.e.
 
 * ingress/egress SG rules
 * routes in the private subnets' route tables
