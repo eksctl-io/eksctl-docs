@@ -19,8 +19,8 @@ This chapter includes information about how you create and configure Nodegroups 
 ** Provision and manage EC2 instances (nodes) for Amazon EKS Kubernetes clusters
 ** Easily apply bug fixes, security patches, and update nodes to the latest Kubernetes versions
 * <<hybrid-nodes>>
-** Enable running on-premises and edge applications on customer-managed infrastructure with the same AWS EKS clusters, features, and tools used in the AWS Cloud
-** Configure networking to connect on-premises networks to an AWS VPC, using options like AWS Site-to-Site VPN or AWS Direct Connect
+** Enable running on-premises and edge applications on customer-managed infrastructure with the same Amazon EKS clusters, features, and tools used in AWS
+** Configure networking to connect on-premises networks to a VPC, using options like AWS Site-to-Site VPN or AWS Direct Connect
 ** Set up credentials for remote nodes to authenticate with the EKS cluster, using either AWS Systems Manager (SSM) or AWS IAM Roles Anywhere
 * <<nodegroup-node-repair-config>>
 ** Enabling Node Repair for EKS Managed Nodegroups to automatically monitor and replace or reboot unhealthy worker nodes

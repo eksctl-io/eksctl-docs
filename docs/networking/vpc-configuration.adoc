@@ -22,7 +22,7 @@ In `us-east-1` eksctl only creates 2 public and 2 private subnets by default.
 == Change VPC CIDR
 
 If you need to set up peering with another VPC, or simply need a larger or smaller range of IPs, you can use `--vpc-cidr` flag to
-change it. Please refer to link:vpc/latest/userguide/VPC_Subnets.html#VPC_Sizing["the AWS docs",type="documentation"] for guides on choosing CIDR blocks which are permitted for use in an AWS VPC.
+change it. Please refer to link:vpc/latest/userguide/VPC_Subnets.html#VPC_Sizing["the AWS docs",type="documentation"] for guides on choosing CIDR blocks which are permitted for use in a VPC.
 
 If you are creating an IPv6 cluster you can configure `VPC.IPv6Cidr` in the cluster config file. This setting is only in the config file, not in a CLI flag.
 

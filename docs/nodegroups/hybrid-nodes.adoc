@@ -7,7 +7,7 @@
 
 == Introduction
 
-AWS EKS introduces Hybrid Nodes, a new feature that enables you to run on-premises and edge applications on customer-managed infrastructure with the same AWS EKS clusters, features, and tools you use in the AWS Cloud. AWS EKS Hybrid Nodes brings an AWS-managed Kubernetes experience to on-premises environments for customers to simplify and standardize how you run applications across on-premises, edge and cloud environments. Read more at link:eks/latest/userguide/hybrid-nodes-overview.html["EKS Hybrid Nodes",type="documentation"].
+Amazon EKS introduces Hybrid Nodes, a new feature that enables you to run on-premises and edge applications on customer-managed infrastructure with the same Amazon EKS clusters, features, and tools you use in AWS. Amazon EKS Hybrid Nodes brings an AWS-managed Kubernetes experience to on-premises environments for customers to simplify and standardize how you run applications across on-premises, edge and cloud environments. Read more at link:eks/latest/userguide/hybrid-nodes-overview.html["EKS Hybrid Nodes",type="documentation"].
 
 To facilitate support for this feature, eksctl introduces a new top-level field called `remoteNetworkConfig`. Any Hybrid Nodes related configuration shall be set up via this field, as part of the config file; there are no CLI flags counterparts. Additionally, at launch, any remote network config can only be set up during cluster creation and cannot be updated afterwards. This means, you won't be able to update existing clusters to use Hybrid Nodes.
 
@@ -16,7 +16,7 @@ The `remoteNetworkConfig` section of the config file allows you to setup the two
 [#hybrid-networking]
 == Networking
 
-EKS Hybrid Nodes is ﬂexible to your preferred method of connecting your on-premises network(s) to an AWS VPC. There are several link:whitepapers/latest/aws-vpc-connectivity-options/network-to-amazon-vpc-connectivity-options.html["documented options",type="documentation"] available, including AWS Site-to-Site VPN and AWS Direct Connect, and you can choose the method that best fits your use case. In most of the methods you might choose, your VPC will be attached to either a virtual private gateway (VGW) or a transit gateway (TGW). If you rely on eksctl to create a VPC for you, eksctl will also configure, *within the scope of your VPC*, any networking related pre-requisites in order to facilitate communication between your EKS control plane and the remote nodes i.e.
+EKS Hybrid Nodes is ﬂexible to your preferred method of connecting your on-premises network(s) to a VPC. There are several link:whitepapers/latest/aws-vpc-connectivity-options/network-to-amazon-vpc-connectivity-options.html["documented options",type="documentation"] available, including AWS Site-to-Site VPN and AWS Direct Connect, and you can choose the method that best fits your use case. In most of the methods you might choose, your VPC will be attached to either a virtual private gateway (VGW) or a transit gateway (TGW). If you rely on eksctl to create a VPC for you, eksctl will also configure, *within the scope of your VPC*, any networking related pre-requisites in order to facilitate communication between your EKS control plane and the remote nodes i.e.
 
 * ingress/egress SG rules
 * routes in the private subnets' route tables
