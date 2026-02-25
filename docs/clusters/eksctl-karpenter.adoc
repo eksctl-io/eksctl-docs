@@ -106,7 +106,7 @@ spec:
     - alias: al2023@latest # Amazon Linux 2023
 ----
 
-Note that you must specify one of `role` or `instanceProfile` for lauch nodes. If you choose to use `instanceProfile`
+Note that you must specify one of `role` or `instanceProfile` for launch nodes. If you choose to use `instanceProfile`
 the name of the profile created by `eksctl` follows the pattern: `eksctl-KarpenterNodeInstanceProfile-<cluster-name>`.
 
 ## Automatic Security Group Tagging

@@ -2,7 +2,7 @@
 [#iam-identity-mappings]
 = Manage IAM users and roles
 
-NOTE: AWS suggests migraitng to <<pod-identity-associations>> from the `aws-auth` ConfigMap. 
+NOTE: AWS suggests migrating to <<pod-identity-associations>> from the `aws-auth` ConfigMap. 
 
 EKS clusters use IAM users and roles to control access to the cluster. The rules are implemented in a config map
 
