@@ -7,7 +7,7 @@
 
 == Introduction
 
-AWS EKS introduces Hybrid Nodes, a new feature that enables you to run on-premises and edge applications on customer-managed infrastructure with the same AWS EKS clusters, features, and tools you use in the AWS Cloud. AWS EKS Hybird Nodes brings an AWS-managed Kubernetes experience to on-premises environments for customers to simplify and standardize how you run applications across on-premises, edge and cloud environments. Read more at link:eks/latest/userguide/hybrid-nodes-overview.html["EKS Hybrid Nodes",type="documentation"].
+Amazon EKS introduces Hybrid Nodes, a new feature that enables you to run on-premises and edge applications on customer-managed infrastructure with the same Amazon EKS clusters, features, and tools you use in AWS. Amazon EKS Hybrid Nodes brings an AWS-managed Kubernetes experience to on-premises environments for customers to simplify and standardize how you run applications across on-premises, edge and cloud environments. Read more at link:eks/latest/userguide/hybrid-nodes-overview.html["EKS Hybrid Nodes",type="documentation"].
 
 To facilitate support for this feature, eksctl introduces a new top-level field called `remoteNetworkConfig`. Any Hybrid Nodes related configuration shall be set up via this field, as part of the config file; there are no CLI flags counterparts. Additionally, at launch, any remote network config can only be set up during cluster creation and cannot be updated afterwards. This means, you won't be able to update existing clusters to use Hybrid Nodes.
 
@@ -16,7 +16,7 @@ The `remoteNetworkConfig` section of the config file allows you to setup the two
 [#hybrid-networking]
 == Networking
 
-EKS Hybrid Nodes is ﬂexible to your preferred method of connecting your on-premises network(s) to an AWS VPC. There are several link:whitepapers/latest/aws-vpc-connectivity-options/network-to-amazon-vpc-connectivity-options.html["documented options",type="documentation"] available, including AWS Site-to-Site VPN and AWS Direct Connect, and you can choose the method that best fits your use case. In most of the methods you might choose, your VPC will be attached to either a virtual private gateway (VGW) or a transit gateway (TGW). If you rely on eksctl to create a VPC for you, eksctl will also configure, *within the scope of your VPC*, any networking related pre-requisites in order to facilitate communication between your EKS control plane and the remote nodes i.e.
+EKS Hybrid Nodes is flexible to your preferred method of connecting your on-premises network(s) to a VPC. There are several link:whitepapers/latest/aws-vpc-connectivity-options/network-to-amazon-vpc-connectivity-options.html["documented options",type="documentation"] available, including AWS Site-to-Site VPN and AWS Direct Connect, and you can choose the method that best fits your use case. In most of the methods you might choose, your VPC will be attached to either a virtual private gateway (VGW) or a transit gateway (TGW). If you rely on eksctl to create a VPC for you, eksctl will also configure, *within the scope of your VPC*, any networking related pre-requisites in order to facilitate communication between your EKS control plane and the remote nodes i.e.
 
 * ingress/egress SG rules
 * routes in the private subnets' route tables
@@ -45,7 +45,7 @@ eksctl does not setup any networking infrastructure outside your AWS VPC (i.e. a
 == Credentials
 
 EKS Hybrid Nodes use the AWS IAM Authenticator and temporary IAM credentials provisioned by either *AWS SSM* or *AWS IAM Roles Anywhere*
-to authenticate with the EKS cluster. Similar to the self-managed nodegroups, if not otherwise provided, eksctl will create for you a Hybrid Nodes IAM Role to be assumed by the remote nodes. Additioanlly, when using IAM Roles Anywhere as your credentials provider, eksctl will setup a profile, and trust anchor based on a given certificate authority bundle (`iam.caBundleCert`) e.g.
+to authenticate with the EKS cluster. Similar to the self-managed nodegroups, if not otherwise provided, eksctl will create for you a Hybrid Nodes IAM Role to be assumed by the remote nodes. Additionally, when using IAM Roles Anywhere as your credentials provider, eksctl will setup a profile, and trust anchor based on a given certificate authority bundle (`iam.caBundleCert`) e.g.
 
 [,yaml]
 ----
@@ -101,7 +101,7 @@ Container Networking Interface (CNI): The AWS VPC CNI can't be used with hybrid 
 
 [NOTE]
 ====
-If you install VPC CNI in your cluster for your self-managed or EKS-managed nodegroups, you have to use `v1.19.0-eksbuild.1` or later, as this includes an udpate to the add-on's daemonset to exclude it from being installed on Hybrid Nodes.
+If you install VPC CNI in your cluster for your self-managed or EKS-managed nodegroups, you have to use `v1.19.0-eksbuild.1` or later, as this includes an update to the add-on's daemonset to exclude it from being installed on Hybrid Nodes.
 ====
 == Further references
 

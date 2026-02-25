@@ -99,4 +99,4 @@ vpc:
 ...
 ----
 
-Fore more information on VPC configuration options, see xref:networking[Networking].
+For more information on VPC configuration options, see xref:networking[Networking].

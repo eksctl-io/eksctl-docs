@@ -189,7 +189,7 @@ pod to match a selector entry. A pod only needs to match one selector
 entry to run on the profile. Any pod that matches all the conditions in
 a selector field would be scheduled to be run on Fargate. Any pods not
 matching either the whitelisted Namespaces but where the user manually
-set the scheduler: fargate-scheduler filed would be stuck in a Pending
+set the scheduler: fargate-scheduler field would be stuck in a Pending
 state, as they were not authorized to run on Fargate.
 
 Profiles must meet the following requirements:
@@ -237,7 +237,7 @@ cluster, it’s also possible to create a Fargate profile with the
 NOTE: This operation is only supported on clusters that run on the
 EKS platform version `eks.5` or higher.
 
-NOTE: If the existing was created with a version of `eksctl` prior to 0.11.0, you will  need to run `eksctl upgrade
+NOTE: If the existing cluster was created with a version of `eksctl` prior to 0.11.0, you will need to run `eksctl upgrade
 cluster` before creating the Fargate profile.
 
 [source,console]

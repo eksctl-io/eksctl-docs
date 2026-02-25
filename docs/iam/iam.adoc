@@ -25,7 +25,7 @@ This chapter includes information about working with AWS IAM.
 ** Attach custom instance roles or inline policies to node groups for additional permissions.
 ** Attach specific AWS managed policies by ARN to node groups, ensuring required policies like AmazonEKSWorkerNodePolicy and AmazonEKS_CNI_Policy are included.
 * <<minimum-iam-policies>>
-** Manage AWS EC2 resources, including load balancers, auto-scaling groups, and CloudWatch monitoring
+** Manage Amazon EC2 resources, including load balancers, auto-scaling groups, and CloudWatch monitoring
 ** Create and manage AWS CloudFormation stacks
 ** Manage Amazon Elastic Kubernetes Service (EKS) clusters, node groups, and related resources like IAM roles and policies
 

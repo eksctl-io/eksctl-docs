@@ -17,7 +17,7 @@ For the most accurate information about EKS deployment options, see link:eks/lat
 ** AWS Outposts is a family of fully managed solutions delivering AWS infrastructure and services to virtually any on-premises or edge location for a truly consistent hybrid experience. 
 ** AWS Outposts support in eksctl lets you create local clusters with the entire Kubernetes cluster, including the EKS control plane and worker nodes, running locally on AWS Outposts. 
 * <<hybrid-nodes>>
-** Run on-premises and edge applications on customer-managed infrastructure with the same AWS EKS clusters, features, and tools you use in the AWS Cloud.
+** Run on-premises and edge applications on customer-managed infrastructure with the same Amazon EKS clusters, features, and tools you use in AWS.
 
 include::eksctl-anywhere.adoc[leveloffset=+1]
 
